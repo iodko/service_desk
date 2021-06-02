@@ -1,2 +1,2 @@
 # service_desk
-version=0.01_a
+version=0.01a
