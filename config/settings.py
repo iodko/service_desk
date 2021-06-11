@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts.apps.AccountsConfig'
-    'tickets.apps'
+    'tickets.apps.TicketsConfig'
 ]
 
 AUTH_USER_MODEL = 'accounts.User'
