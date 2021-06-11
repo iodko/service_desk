@@ -28,6 +28,8 @@ class Ticket(models.Model):
         choices=TicketCritical.choices,
         default=TicketCritical.MINIMUM,
         verbose_name="Критичность заявки",
+        blank=True,
+        null=True
     )
     created_at = models.DateTimeField(
         auto_now_add=True, verbose_name="Дата создания"
@@ -37,7 +39,7 @@ class Ticket(models.Model):
     )
     finished_at = models.DateTimeField("Дата решения", blank=True, null=True)
     parent_id = models.ForeignKey(
-        "Ticket", on_delete=models.PROTECT, verbose_name="Родительская заявка"
+        "Ticket", on_delete=models.PROTECT, verbose_name="Родительская заявка", blank=True, null=True
     )
     author = models.ForeignKey(
         User,
@@ -58,12 +60,16 @@ class Ticket(models.Model):
         on_delete=models.PROTECT,
         related_name="tickets",
         verbose_name="Услуга",
+        blank=True,
+        null=True
     )
     category = models.ForeignKey(
         "Category",
         on_delete=models.PROTECT,
         related_name="tickets",
         verbose_name="Категория",
+        blank=True,
+        null=True
     )
     organization = models.ForeignKey(
         Organization,
@@ -76,6 +82,8 @@ class Ticket(models.Model):
         on_delete=models.PROTECT,
         related_name="tickets",
         verbose_name="Структурное подразделение",
+        blank=True,
+        null=True
     )
     status = models.ForeignKey(
         "Status",
