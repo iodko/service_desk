@@ -117,7 +117,7 @@ class Status(models.Model):
         verbose_name_plural = "Статусы"
 
     def __str__(self):
-        return {self.name}
+        return self.name
 
 
 class AvailableStatus(models.Model):
@@ -160,7 +160,7 @@ class Type(models.Model):
         verbose_name_plural = "Типы заявки"
 
     def __str__(self):
-        return {self.name}
+        return self.name
 
 
 class AvailableType(models.Model):
@@ -194,7 +194,7 @@ class Service(models.Model):
         verbose_name_plural = "Услуги"
 
     def __str__(self):
-        return {self.name}
+        return self.name
 
 
 class AvailableService(models.Model):
@@ -241,7 +241,7 @@ class Category(models.Model):
         verbose_name_plural = "Категории"
 
     def __str__(self):
-        return {self.name}
+        return self.name
 
 
 class AvailableCategory(models.Model):
