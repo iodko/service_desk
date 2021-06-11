@@ -25,7 +25,7 @@ class Ticket(models.Model):
     content = models.CharField(max_length=8000, verbose_name="Содержание")
     critical = models.CharField(
         max_length=250,
-        choices=TicketCritical,
+        choices=TicketCritical.choices,
         default=TicketCritical.MINIMUM,
         verbose_name="Критичность заявки",
     )
@@ -250,7 +250,7 @@ class AvailableCategory(models.Model):
     agreement = models.ForeignKey(
         Agreement,
         on_delete=models.CASCADE,
-        related_name="services",
+        related_name="avl_categories",
         verbose_name="Соглашение",
     )
 

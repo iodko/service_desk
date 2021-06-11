@@ -20,17 +20,17 @@ class TicketAdmin(admin.ModelAdmin):
     list_display_links = ("id", "author")
     search_fields = ("id", "organization", "responsible")
     list_filter = ("organization",)
-    autocomplete_fields = (
-        "organization",
-        "service",
-        "category",
-        "author",
-        "responsible",
-        "subdivision",
-        "status",
-        "type",
-        "agreement",
-    )
+    # autocomplete_fields = (
+    #     "organization",
+    #     "service",
+    #     "category",
+    #     "author",
+    #     "responsible",
+    #     "subdivision",
+    #     "status",
+    #     "type",
+    #     "agreement",
+    # )
     filter_horizontal = ("files",)
 
 
@@ -58,7 +58,7 @@ class AvailableTypeAdmin(admin.ModelAdmin):
     list_display = ("id", "agreement")
     list_display_links = ("id", "agreement")
     search_fields = ("agreement",)
-    filter_horizontal = ("types",)
+    filter_horizontal = ("available_types",)
 
 
 @admin.register(AvailableService)
@@ -66,7 +66,7 @@ class AvailableServiceAdmin(admin.ModelAdmin):
     list_display = ("id", "agreement", "type")
     list_display_links = ("id", "agreement")
     search_fields = ("agreement", "type")
-    filter_horizontal = ("services",)
+    filter_horizontal = ("available_services",)
 
 
 @admin.register(AvailableCategory)
@@ -74,11 +74,11 @@ class AvailableCategoryAdmin(admin.ModelAdmin):
     list_display = ("id", "agreement")
     list_display_links = ("id", "agreement")
     search_fields = ("agreement",)
-    filter_horizontal = ("categories",)
+    filter_horizontal = ("available_categories",)
 
 
 @admin.register(WorkDaysCount)
-class AvailableCategoryAdmin(admin.ModelAdmin):
+class WorkDayAdmin(admin.ModelAdmin):
     list_display = ("id", "agreement", "interval")
     list_display_links = ("id", "agreement", "interval")
     search_fields = ("agreement",)
