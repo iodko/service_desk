@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'tickets.apps.TicketsConfig',
     'attachments',
+    'contracts',
 ]
 
 AUTH_USER_MODEL = 'accounts.User'

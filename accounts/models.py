@@ -35,7 +35,7 @@ class Organization(models.Model):
     )
 
     class Meta:
-        ordering = "name"
+        ordering = ("name",)
         verbose_name = 'Организация'
         verbose_name_plural = 'Организации'
 
@@ -50,7 +50,7 @@ class Subdivision(models.Model):
     )
 
     class Meta:
-        ordering = "name"
+        ordering = ("name",)
         verbose_name = 'Подразделение'
         verbose_name_plural = 'Подразделения'
 
