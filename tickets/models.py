@@ -125,7 +125,7 @@ class Status(models.Model):
         verbose_name_plural = "Статусы"
 
     def __str__(self):
-        return {self.name}
+        return self.name
 
 
 class AvailableStatus(models.Model):
@@ -168,7 +168,7 @@ class Type(models.Model):
         verbose_name_plural = "Типы заявки"
 
     def __str__(self):
-        return {self.name}
+        return self.name
 
 
 class AvailableType(models.Model):
@@ -185,8 +185,8 @@ class AvailableType(models.Model):
     )
 
     class Meta:
-        verbose_name = "Доступные Статусы"
-        verbose_name_plural = "Доступные Статусы"
+        verbose_name = "Доступные Типы"
+        verbose_name_plural = "Доступные Типы"
 
     def __str__(self):
         return f"Соглашение: {self.agreement} <--Е типы"
@@ -202,7 +202,7 @@ class Service(models.Model):
         verbose_name_plural = "Услуги"
 
     def __str__(self):
-        return {self.name}
+        return self.name
 
 
 class AvailableService(models.Model):
@@ -228,12 +228,12 @@ class AvailableService(models.Model):
     available_services = models.ManyToManyField(
         Service,
         related_name="avl_for_agreements_types",
-        verbose_name="Доступные типы",
+        verbose_name="Доступные услуги",
     )
 
     class Meta:
-        verbose_name = "Доступные Статусы"
-        verbose_name_plural = "Доступные Статусы"
+        verbose_name = "Доступные Услуги"
+        verbose_name_plural = "Доступные Услуги"
 
     def __str__(self):
         return f"{self.agreement} + {self.type}<--Е услуги"
@@ -249,7 +249,7 @@ class Category(models.Model):
         verbose_name_plural = "Категории"
 
     def __str__(self):
-        return {self.name}
+        return self.name
 
 
 class AvailableCategory(models.Model):
