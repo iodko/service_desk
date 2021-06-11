@@ -20,17 +20,17 @@ class TicketAdmin(admin.ModelAdmin):
     list_display_links = ("id", "author")
     search_fields = ("id", "organization", "responsible")
     list_filter = ("organization",)
-    # autocomplete_fields = (
-    #     "organization",
-    #     "service",
-    #     "category",
-    #     "author",
-    #     "responsible",
-    #     "subdivision",
-    #     "status",
-    #     "type",
-    #     "agreement",
-    # )
+    autocomplete_fields = (
+        "organization",
+        "service",
+        "category",
+        "author",
+        "responsible",
+        "subdivision",
+        "status",
+        "type",
+        "agreement",
+    )
     filter_horizontal = ("files",)
 
 

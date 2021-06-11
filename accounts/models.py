@@ -17,7 +17,7 @@ class Organization(models.Model):
     )
     photo = models.ImageField(
         verbose_name="Фотография",
-        upload_to=user_directory_path,
+        upload_to=org_directory_path,
         blank=True,
         null=True
     )
@@ -76,7 +76,7 @@ class User(AbstractUser):
         blank=True,
         null=True
     )
-    OrganizationDetail = models.ManyToManyField(
+    organizations = models.ManyToManyField(
         Organization,
         through='OrganizationDetail',
         related_name='staff'
