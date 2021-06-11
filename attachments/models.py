@@ -17,6 +17,13 @@ class Attachment(models.Model):
         verbose_name="Автор",
     )
     file = models.FileField(
-        upload_to="user_files/%Y/%m/%d/", verbose_name=" айл"
+        upload_to="user_files/%Y/%m/%d/", verbose_name="Файл"
     )
     is_private = models.BooleanField(default=False, verbose_name="Приватность")
+
+    class Meta:
+        verbose_name = "Пользовательский Файл"
+        verbose_name_plural = "Пользовательские Файлы"
+
+    def __str__(self):
+        return self.file.name
