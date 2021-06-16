@@ -133,4 +133,7 @@ dmypy.json
 
 #Project ignore
 .db
-migrations/
+.idea
+*/migrations/*
+media/
+!*/migrations/__init__.py
