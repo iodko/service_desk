@@ -1,7 +1,6 @@
 # service_desk
-## version
-0.01a
 ## Описание
+### version 0.01a
 ### Стуруктура .env
 ```
 SECRET_KEY="секретный ключ из settings.py"
