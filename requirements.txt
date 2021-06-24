@@ -7,3 +7,5 @@ django-registration-redux==2.9
 # работа с переменной окружения
 python_dotenv==0.17.1
 Pillow==8.2.0
+psycopg2-binary
+
