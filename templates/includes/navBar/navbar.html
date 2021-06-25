@@ -1,0 +1,29 @@
+{% load static %}
+<nav class="blue darken-4" role="navigation">
+    <div class="nav-wrapper container">
+        <a id="logo-container" href="{% url 'index' %}"
+           class="brand-logo">
+            <img src="{% static "images/logo.png" %}"
+                 alt="logo"
+                 width="25%"
+                 height="25%"
+            />
+        </a>
+        <ul class="right hide-on-med-and-down">
+            {% if not request.user.is_authenticated %}
+                {% include "includes/navBar/non_authorized_nav.html" %}
+            {% else %}
+                {% include "includes/navBar/authorized_nav.html" %}
+            {% endif %}
+        </ul>
+        <ul id="nav-mobile" class="sidenav">
+            {% if not request.user.is_authenticated %}
+                {% include "includes/navBar/non_authorized_nav.html" %}
+            {% else %}
+                {% include "includes/navBar/authorized_nav.html" %}
+            {% endif %}
+        </ul>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i
+                class="material-icons">menu</i></a>
+    </div>
+</nav>

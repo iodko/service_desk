@@ -2,16 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     {% block meta %}
+        <!-- your meta settings -->
     {% endblock %}
-    <title>{% block title %}Base{% endblock %}</title>
+    <title>
+        {% block title %}Base{% endblock %}
+    </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    {% load static %}
     {% block link %}
+        <!-- your css links -->
     {% endblock %}
 </head>
 <body>
-    {% block content %}
+    {% block navbar %}
+        {% include 'includes/navBar/navbar.html' %}
+    {% endblock %}
+
+    <ul id="slide-out" class="sidenav">
+      <li><a href="#!">First Sidebar Link</a></li>
+      <li><a href="#!">Second Sidebar Link</a></li>
+        <input type="text"/>
+        <button type="submit">fsadgas</button>
+    </ul>
+    <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
+    <div class="container" style="min-height: 70vh">
+        {% block content %}
+            <!-- your content -->
+        {% endblock %}
+    </div>
+    {% block footbar %}
+        {% include 'includes/footBar/footbar.html' %}
     {% endblock %}
 </body>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="{% static "js/sidenav/navinit.js" %}"></script>
 {% block script %}
+    <!-- your js scripts -->
 {% endblock %}
 </html>
