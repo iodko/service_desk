@@ -13,6 +13,7 @@
     <!-- icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     {% load static %}
+    <link rel="stylesheet" href="{% static "css/icons.css" %}">
     {% block link %}
         <!-- your css links -->
     {% endblock %}
@@ -22,14 +23,10 @@
         {% include 'includes/navBar/navbar.html' %}
     {% endblock %}
 
-    <ul id="slide-out" class="sidenav">
-      <li><a href="#!">First Sidebar Link</a></li>
-      <li><a href="#!">Second Sidebar Link</a></li>
-        <input type="text"/>
-        <button type="submit">fsadgas</button>
-    </ul>
-    <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
-    <div class="container" style="min-height: 70vh">
+    {% block slidebar %}
+        {% include 'includes/slideBar/slidebar.html' %}
+    {% endblock %}
+    <div class="container" style="min-height: 80vh">
         {% block content %}
             <!-- your content -->
         {% endblock %}
@@ -41,7 +38,7 @@
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="{% static "js/sidenav/navinit.js" %}"></script>
-{% block script %}
+{% block js %}
     <!-- your js scripts -->
 {% endblock %}
 </html>

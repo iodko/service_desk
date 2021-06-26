@@ -1,11 +1,20 @@
+# framework
 Django==3.2.3
 # валидатор на проверку уникальности пароля пользователя
 # (запрет повторений пароля)
-django-password-validators==1.4.0
+django-password-validators==1.6.1
 # регистрация с подтверждением по email
 django-registration-redux==2.9
 # работа с переменной окружения
-python_dotenv==0.17.1
+python_dotenv==0.18.0
+# work with images
 Pillow==8.2.0
-psycopg2-binary
-
+psycopg2-binary==2.9.1
+# api
+djangorestframework==3.12.4
+# filtering
+django-filter==2.4.0
+# markdown for browsable API
+markdown==3.3.4
+# web server
+gunicorn==20.1.0

@@ -8,6 +8,7 @@ from accounts.models import User, Organization, Subdivision
 
 class OrganizationDetailInline(admin.TabularInline):
     model = User.organizations.through
+    autocomplete_fields = ('organization',)
 
 
 @admin.register(User)
