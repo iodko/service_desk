@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block meta %}
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+{% endblock %}
+{% block title %}Регистрация{% endblock %}
+{% load static %}
+{% block links %}
+{% endblock %}
+{% block slidebar %}
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="row">
+                    <div class="input-field col s12">
+                        {{ field.label }}
+                        {{ field }}
+                        {% for error in field.errors %}
+                            <li class="materialize-red-text">{{ error }}</li>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+            <button type="submit"
+                    class="waves-effect waves-light btn blue darken-4">
+                Отправить
+            </button>
+        </form>
+    </div>
+{% endblock %}
+{% block js %}
+    <script src="{% static 'js/accounts/autocomplete.js' %}"></script>
+{% endblock %}

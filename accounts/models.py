@@ -97,7 +97,9 @@ class OrganizationDetail(models.Model):
     )
     subdivision = models.ForeignKey(
         Subdivision,
-        on_delete=models.PROTECT
+        on_delete=models.PROTECT,
+        blank=True,
+        null=True
     )
     is_accepted = models.BooleanField(default=False)
 

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% block meta %}
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+{% endblock %}
+{% block title %}Войти на сайт{% endblock %}
+{% block links %}
+{% endblock %}
+{% block slidebar %}
+{% endblock %}
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="waves-effect waves-light btn blue darken-4">
+            Войти
+        </button>
+    </form>
+{% endblock %}

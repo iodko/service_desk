@@ -14,7 +14,6 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
-    "registration",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -23,7 +22,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_password_validators",
     "django_password_validators.password_history",
+    'rest_framework',
     "accounts.apps.AccountsConfig",
+    "registration",
     "tickets.apps.TicketsConfig",
     "attachments.apps.AttachmentsConfig",
     "contracts.apps.ContractsConfig",
@@ -134,3 +135,12 @@ LOGOUT_REDIRECT_URL = "index"
 
 # pagination
 OBJ_ON_PAGE = 10
+
+# API
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
