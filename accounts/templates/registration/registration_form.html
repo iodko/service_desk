@@ -15,15 +15,37 @@
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {% for field in form %}
-                <div class="row">
-                    <div class="input-field col s12">
-                        {{ field.label }}
-                        {{ field }}
+                {% if  field.widget_type == 'clearablefile' %}
+                    <div class="row">
+                        <div class="file-field input-field">
+                            <div class="btn blue darken-4">
+                                <span>Выбрать файл</span>
+                                <label class="active" for="{{ field.id_for_label }}">
+                                    {{ field.label }}
+                                </label>
+                                {{ field }}
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text">
+                            </div>
+                        </div>
                         {% for error in field.errors %}
                             <li class="materialize-red-text">{{ error }}</li>
                         {% endfor %}
                     </div>
-                </div>
+                {% else %}
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label class="active" for="{{ field.id_for_label }}">
+                                {{ field.label }}
+                            </label>
+                            {{ field }}
+                            {% for error in field.errors %}
+                                <li class="materialize-red-text">{{ error }}</li>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
             {% endfor %}
             <button type="submit"
                     class="waves-effect waves-light btn blue darken-4">

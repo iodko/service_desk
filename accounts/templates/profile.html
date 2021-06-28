@@ -1,11 +1,23 @@
 {% extends 'base.html' %}
 {% block title %}
-Мой профиль
+    Мой профиль
 {% endblock %}
 {% block content %}
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {% for field in form %}
+            <div class="input-field col s12">
+                {{ field.label }}
+                {{ field }}
+            </div>
         {% endfor %}
+        <button type="submit" class="btn blue darken-4">Изменить</button>
     </form>
+{% endblock %}
+{% block js %}
+<script>
+    $(document).ready(function () {
+        $('select').formSelect();
+    });
+</script>
 {% endblock %}

@@ -60,3 +60,12 @@ class SignUpForm(RegistrationForm):
         user.save()
         user.organizations.add(self.cleaned_data['organization'])
         return user
+
+
+class EditForm(forms.ModelForm):
+    class Meta:
+        fields = (
+            'first_name', 'last_name', 'patronymic',
+            'photo', 'organizations', 'email'
+        )
+        model = User

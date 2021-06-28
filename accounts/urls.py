@@ -1,6 +1,7 @@
 from django.urls import path, reverse_lazy, include
 from django.contrib.auth import views as auth_views
 
+from accounts.views import ProfileView
 
 urlpatterns = [
     path(
@@ -13,5 +14,6 @@ urlpatterns = [
         ),
         name="auth_password_reset"
     ),
-    path("", include("registration.backends.default.urls"))
+    path("", include("registration.backends.default.urls")),
+    path('profile/<int:username>/', ProfileView.as_view(), name='profile')
 ]
